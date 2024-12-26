@@ -1,41 +1,13 @@
 import type { Metadata } from "next";
-import {
-  ColorSchemeScript,
-  createTheme,
-  DEFAULT_THEME,
-  MantineProvider,
-  mergeMantineTheme,
-} from "@mantine/core";
-import localFont from "next/font/local";
+import { ColorSchemeScript } from "@mantine/core";
 import Head from "next/head";
-import "./globals.css";
-import { breakpoints, colors } from "./theme";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "@/styles/globals.css";
+import { GlobalProviders } from "@/providers/app.providers";
 
 export const metadata: Metadata = {
   title: "Next App Mantine Tailwind Template",
   description: "Next App Mantine Tailwind Template",
 };
-
-const theme = mergeMantineTheme(
-  DEFAULT_THEME,
-  createTheme({
-    fontFamily: geistSans.style.fontFamily,
-    fontFamilyMonospace: geistMono.style.fontFamily,
-    breakpoints,
-    colors,
-  }),
-);
 
 export default function RootLayout({
   children,
@@ -48,7 +20,7 @@ export default function RootLayout({
         <ColorSchemeScript />
       </Head>
       <body className="antialiased">
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <GlobalProviders>{children}</GlobalProviders>
       </body>
     </html>
   );

@@ -1,0 +1,18 @@
+.navBarMain {
+  @apply flex gap-5 justify-between py-3 pr-20 pl-6  max-w-full leading-5 max-md:flex-wrap max-md:px-5;
+  background: var(--shared-header-menu-color);
+  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  color: white;
+}
+.navBarListButton {
+  @apply flex gap-2.5 justify-between items-center whitespace-nowrap px-4 py-1;
+  --holder-bg: #62417b;
+}
+.navBarListButtonActive {
+  @apply flex gap-2.5 items-center justify-between whitespace-nowrap px-5 py-1;
+  background-color: white;
+  border-radius: 10px;
+  --text-p-color: var(--shared-header-menu-color);
+  --holder-bg: var(--shared-header-menu-color);
+}
